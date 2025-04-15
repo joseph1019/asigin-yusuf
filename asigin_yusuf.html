@@ -12,14 +12,8 @@
       text-align: center;
     }
 
-    #content {
+    #siteContent {
       display: none;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #caaaff;
-      margin-bottom: 30px;
     }
 
     .poem {
@@ -29,7 +23,7 @@
       margin-bottom: 30px;
     }
 
-    img {
+    .image-container img {
       width: 300px;
       border-radius: 20px;
       box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
@@ -38,29 +32,34 @@
     .caption {
       margin-top: 10px;
       font-style: italic;
-      color: #ccc;
       font-size: 1rem;
+      color: #ccc;
     }
 
-    #passwordPrompt {
-      background-color: #09182f;
-      color: white;
+    #passwordModal {
+      position: fixed;
+      top: 0;
+      left: 0;
       height: 100vh;
+      width: 100vw;
+      background-color: #0b1d3a;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
     }
 
-    input[type="password"] {
+    #passwordModal input {
       padding: 10px;
       font-size: 1rem;
       border-radius: 10px;
       border: none;
       margin-top: 10px;
+      width: 200px;
+      text-align: center;
     }
 
-    button {
+    #passwordModal button {
       margin-top: 10px;
       padding: 10px 20px;
       font-size: 1rem;
@@ -70,47 +69,55 @@
       border-radius: 10px;
       cursor: pointer;
     }
+
+    #errorText {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
   </style>
 </head>
 <body>
 
-  <div id="passwordPrompt">
-    <h2>Sayfayı görmek için şifre gir:</h2>
-    <input type="password" id="passwordInput" placeholder="Şifre">
-    <button onclick="checkPassword()">Giriş</button>
-    <p id="error" style="color: red; display: none;">Şifre yanlış, tekrar dene.</p>
+<div id="passwordModal">
+  <h2>Bu sayfa şifre korumalı</h2>
+  <input type="password" id="passwordInput" placeholder="Şifre">
+  <button onclick="checkPassword()">Giriş</button>
+  <div id="errorText">Şifre yanlış, tekrar dene.</div>
+</div>
+
+<div id="siteContent">
+  <h1>Aşığın Yusuf</h1>
+
+  <div class="poem">
+    aşktır cennetten bitmeyen bir sevap<br>
+    seni görünce olur lisanım harap<br>
+    aşktır beni eyleyen vahap<br>
+    olur yanımızda bir ahbap<br>
+    aşkın okuması bitmeyen bir kitap<br>
+    yemeğe olur inanılmaz bir şap<br>
+    herkes aşkla olmaz mı bitap<br>
+    cem’im sen bana oldun yeni bir hitap.
   </div>
 
-  <div id="content">
-    <h1>Aşığın Yusuf</h1>
-
-    <div class="poem">
-      aşktır cennetten bitmeyen bir sevap<br>
-      seni görünce olur lisanım harap<br>
-      aşktır beni eyleyen vahap<br>
-      olur yanımızda bir ahbap<br>
-      aşkın okuması bitmeyen bir kitap<br>
-      yemeğe olur inanılmaz bir şap<br>
-      herkes aşkla olmaz mı bitap<br>
-      cem’im sen bana oldun yeni bir hitap.
-    </div>
-
+  <div class="image-container">
     <img src="cem_ve_yusuf.png" alt="Cem ve Yusuf">
     <div class="caption">sabrı öğreten aşk</div>
   </div>
+</div>
 
-  <script>
-    function checkPassword() {
-      const input = document.getElementById('passwordInput').value;
-      const correctPassword = "050807";
-      if (input === correctPassword) {
-        document.getElementById('passwordPrompt').style.display = "none";
-        document.getElementById('content').style.display = "block";
-      } else {
-        document.getElementById('error').style.display = "block";
-      }
+<script>
+  function checkPassword() {
+    const correctPassword = "050807";
+    const enteredPassword = document.getElementById("passwordInput").value;
+    if (enteredPassword === correctPassword) {
+      document.getElementById("passwordModal").style.display = "none";
+      document.getElementById("siteContent").style.display = "block";
+    } else {
+      document.getElementById("errorText").style.display = "block";
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
