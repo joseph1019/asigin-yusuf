@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <title>Aşığın Yusuf</title>
   <style>
     body {
-      background-color: #0b1d3a;
+      background-color: #0d1b2a;
       color: white;
       font-family: Georgia, serif;
       padding: 40px;
@@ -16,14 +16,24 @@
       display: none;
     }
 
+    h1 {
+      font-size: 2.5rem;
+      color: #c0aaff;
+      margin-bottom: 40px;
+    }
+
     .poem {
       font-size: 1.2rem;
       line-height: 1.8;
       white-space: pre-line;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
     }
 
-    .image-container img {
+    .image-container {
+      margin-top: 30px;
+    }
+
+    img {
       width: 300px;
       border-radius: 20px;
       box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
@@ -32,8 +42,11 @@
     .caption {
       margin-top: 10px;
       font-style: italic;
-      font-size: 1rem;
-      color: #ccc;
+      color: #f0f0f0;
+    }
+
+    .music {
+      margin-top: 40px;
     }
 
     #passwordModal {
@@ -42,11 +55,12 @@
       left: 0;
       height: 100vh;
       width: 100vw;
-      background-color: #0b1d3a;
+      background-color: #0d1b2a;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      z-index: 10;
     }
 
     #passwordModal input {
@@ -79,6 +93,7 @@
 </head>
 <body>
 
+<!-- Şifre Kutusu -->
 <div id="passwordModal">
   <h2>Bu sayfa şifre korumalı</h2>
   <input type="password" id="passwordInput" placeholder="Şifre">
@@ -86,6 +101,7 @@
   <div id="errorText">Şifre yanlış, tekrar dene.</div>
 </div>
 
+<!-- Asıl İçerik -->
 <div id="siteContent">
   <h1>Aşığın Yusuf</h1>
 
@@ -103,6 +119,15 @@
   <div class="image-container">
     <img src="cem_ve_yusuf.png" alt="Cem ve Yusuf">
     <div class="caption">sabrı öğreten aşk</div>
+  </div>
+
+  <div class="music">
+    <iframe style="border-radius:12px" 
+      src="https://open.spotify.com/embed/track/0AHY9HLMYcbscA2s4KEiJc?utm_source=generator" 
+      width="300" height="80" frameBorder="0" 
+      allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
   </div>
 </div>
 
