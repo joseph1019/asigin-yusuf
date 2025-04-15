@@ -1,20 +1,23 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <title>Aşığın Yusuf</title>
   <style>
     body {
-      background-color: #0b1d3a; /* Gece mavisi */
+      background-color: #0b1d3a;
       color: white;
       font-family: Georgia, serif;
       padding: 40px;
       text-align: center;
-      display: none; /* Şifre doğruysa gösterilecek */
+    }
+
+    #content {
+      display: none;
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       color: #caaaff;
       margin-bottom: 30px;
     }
@@ -42,7 +45,6 @@
     #passwordPrompt {
       background-color: #09182f;
       color: white;
-      font-family: Georgia, serif;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -73,13 +75,13 @@
 <body>
 
   <div id="passwordPrompt">
-    <h2>Sayfayı görüntülemek için şifre gir:</h2>
+    <h2>Sayfayı görmek için şifre gir:</h2>
     <input type="password" id="passwordInput" placeholder="Şifre">
     <button onclick="checkPassword()">Giriş</button>
     <p id="error" style="color: red; display: none;">Şifre yanlış, tekrar dene.</p>
   </div>
 
-  <div id="content" style="display: none;">
+  <div id="content">
     <h1>Aşığın Yusuf</h1>
 
     <div class="poem">
@@ -103,7 +105,6 @@
       const correctPassword = "050807";
       if (input === correctPassword) {
         document.getElementById('passwordPrompt').style.display = "none";
-        document.body.style.display = "block";
         document.getElementById('content').style.display = "block";
       } else {
         document.getElementById('error').style.display = "block";
